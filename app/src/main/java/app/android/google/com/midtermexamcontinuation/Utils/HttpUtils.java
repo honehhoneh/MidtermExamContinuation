@@ -1,4 +1,4 @@
-package app.android.google.com.midtermexamcontinuation;
+package app.android.google.com.midtermexamcontinuation.Utils;
 
 
 import android.net.Uri;

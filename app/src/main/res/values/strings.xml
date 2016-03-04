@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">MidtermExamContinuation</string>
+    <string name="app_name">Midterm Exam Cont...</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="progress_getting_books">Getting Books...</string>
+    <string name="action_search">Search</string>
     <string name="action_settings">Settings</string>
 </resources>

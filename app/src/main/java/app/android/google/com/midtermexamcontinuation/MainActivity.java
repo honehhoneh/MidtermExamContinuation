@@ -1,23 +1,22 @@
 package app.android.google.com.midtermexamcontinuation;
 
 
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
+import android.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
+import app.android.google.com.midtermexamcontinuation.Fragment.ListViewFragment;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView mListView;
-    getBookCollection getBooks = new getBookCollection();
-    BookApi bookApi = new BookApi();
-    List<Book> books = new ArrayList<>();
+
+    private ListViewFragment mListViewFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,26 +25,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mListView = (ListView) findViewById(R.id.mainListView);
-        getBooks.execute();
-    }
+        mListViewFragment = ListViewFragment.newInstance();
 
-    private class getBookCollection extends AsyncTask<Void, Void, Void> {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, mListViewFragment)
+                .commit();
 
-        @Override
-        protected Void doInBackground(Void... params) {
-            books = bookApi.getBooks();
-            return null;
-        }
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-
-            BookAdapter adapter = new BookAdapter(getApplicationContext(), R.layout.list_item, books);
-
-            mListView.setAdapter(adapter);
-        }
+            }
+        });
     }
 
     @Override
@@ -63,8 +56,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_refresh) {
+            finish();
+            startActivity(getIntent());
         }
 
         return super.onOptionsItemSelected(item);

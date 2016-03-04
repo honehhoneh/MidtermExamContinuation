@@ -1,5 +1,4 @@
-package app.android.google.com.midtermexamcontinuation;
-
+package app.android.google.com.midtermexamcontinuation.Adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -9,6 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import java.util.List;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import app.android.google.com.midtermexamcontinuation.Entities.Book;
+import app.android.google.com.midtermexamcontinuation.R;
 
 import java.util.List;
 
@@ -35,7 +48,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
 
             // create the view holder
             viewHolder = new ViewHolder();
-            viewHolder.tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+            viewHolder.tvTitle = (TextView) convertView.findViewById(R.id.tvBookTitle);
 
             convertView.setTag(viewHolder);
         } else {

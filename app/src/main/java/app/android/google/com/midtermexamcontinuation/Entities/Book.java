@@ -1,5 +1,4 @@
-package app.android.google.com.midtermexamcontinuation;
-
+package app.android.google.com.midtermexamcontinuation.Entities;
 
 public class Book {
 
@@ -10,13 +9,6 @@ public class Book {
     private Boolean mIsRead;
 
     public Book() {
-    }
-
-    public Book(String mTitle, String mGenre, String mAuthor, Boolean mIsRead) {
-        this.mTitle = mTitle;
-        this.mGenre = mGenre;
-        this.mAuthor = mAuthor;
-        this.mIsRead = mIsRead;
     }
 
     public Book(String mId, String mTitle, String mGenre, String mAuthor, Boolean mIsRead) {
