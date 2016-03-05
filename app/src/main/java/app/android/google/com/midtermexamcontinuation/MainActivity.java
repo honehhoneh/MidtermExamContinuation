@@ -1,6 +1,7 @@
 package app.android.google.com.midtermexamcontinuation;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getApplicationContext(), DetailActivity.class);
+             //   i.putExtra("INDICATOR", "add");
+                startActivity(i);
             }
         });
     }
@@ -44,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        menu.clear();
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_search, menu);
         return true;
     }
 
@@ -57,10 +62,17 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-            finish();
-            startActivity(getIntent());
-        }
 
+            mListViewFragment = ListViewFragment.newInstance();
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .detach(mListViewFragment)
+                    .attach(mListViewFragment)
+                    .commit();
+
+
+        }
         return super.onOptionsItemSelected(item);
     }
 }

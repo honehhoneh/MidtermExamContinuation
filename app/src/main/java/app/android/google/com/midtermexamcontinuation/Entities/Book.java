@@ -51,7 +51,7 @@ public class Book {
         this.mAuthor = mAuthor;
     }
 
-    public Boolean getmIsRead() {
+    public Boolean isRead() {
         return mIsRead;
     }
 

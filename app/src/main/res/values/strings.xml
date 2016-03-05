@@ -4,4 +4,7 @@
     <string name="progress_getting_books">Getting Books...</string>
     <string name="action_search">Search</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
 </resources>
